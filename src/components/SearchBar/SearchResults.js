@@ -1,10 +1,12 @@
 import React from "react";
 
-
-function SearchResults() {
-    return (
-        <h2>Results:</h2>
-    )
+const SearchResults = (props) => {
+  return (
+    <>
+      <h2>Results:</h2>
+      {props.children}
+    </>
+  );
 };
 
 export default SearchResults;
