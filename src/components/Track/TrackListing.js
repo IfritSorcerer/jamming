@@ -27,8 +27,7 @@ const TrackListing = (props) => {
       {track.map((track) => (
         <li key={track.id}>
           <b>{track.name}</b>
-          <p>{track.artist}</p>
-          <p>{track.album}</p>
+          <p>{track.artist} | {track.album}</p>
           <button 
             type="submit"
             onClick={() => props.addTrack(track)}>Add to Playlist</button>
