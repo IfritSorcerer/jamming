@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 
-const Playlist = ({ tracks }) => {
+const Playlist = ({ tracks, removeTrack }) => {
   const songList = tracks ?? [];
 
-  const [playlistName, setPlaylistName] = useState('New Playlist');
+  const [playlistName, setPlaylistName] = useState("New Playlist");
   const handleNameChange = (e) => {
     setPlaylistName(e.target.value);
-  }
+  };
   return (
     <div>
       <label htmlFor="playlist-maker">Name:</label>
-      <input htmlFor="playlist-maker" type="text" id="playlist-maker" onChange={handleNameChange} value={playlistName} />
+      <input
+        htmlFor="playlist-maker"
+        type="text"
+        id="playlist-maker"
+        onChange={handleNameChange}
+        value={playlistName}
+      />
       <h2>{playlistName}</h2>
 
       <ol>
@@ -20,7 +26,9 @@ const Playlist = ({ tracks }) => {
             <p>
               {track.artist} | {track.album}
             </p>
-            <button type="submit">Remove From Playlist</button>
+            <button type="submit" onClick={removeTrack}>
+              Remove From Playlist
+            </button>
           </li>
         ))}
       </ol>

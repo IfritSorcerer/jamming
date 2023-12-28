@@ -3,19 +3,22 @@ import TrackListing from "../Track/TrackListing";
 import Playlist from "./Playlist";
 
 const PlaylistContainer = () => {
-  const [tracks, setTracks] = useState([]);  
+  const [tracks, setTracks] = useState([]);
 
   const addTrackToPlaylist = (track) => {
     setTracks([...tracks, track]);
   };
 
- const removeTrackFromPlaylist = (track) => {
-  
- }
+  const removeTrackFromPlaylist = (trackIdToRemove) => {
+    setTracks((tracks) =>
+      tracks.filter((track) => track.id === trackIdToRemove)
+    );
+  };
+
   return (
     <div>
       <TrackListing addTrack={addTrackToPlaylist} />
-      <Playlist tracks={tracks} />
+      <Playlist tracks={tracks} removeTrack={removeTrackFromPlaylist} />
     </div>
   );
 };
