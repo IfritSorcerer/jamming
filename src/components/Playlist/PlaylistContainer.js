@@ -9,7 +9,9 @@ const PlaylistContainer = () => {
     setTracks([...tracks, track]);
   };
 
- 
+ const removeTrackFromPlaylist = (track) => {
+  
+ }
   return (
     <div>
       <TrackListing addTrack={addTrackToPlaylist} />
