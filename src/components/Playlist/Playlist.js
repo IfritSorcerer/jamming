@@ -26,7 +26,7 @@ const Playlist = ({ tracks, removeTrack }) => {
             <p>
               {track.artist} | {track.album}
             </p>
-            <button type="submit" onClick={removeTrack}>
+            <button type="submit" onClick={() => { console.log('button clicked'); removeTrack(track.id);}}>
               Remove From Playlist
             </button>
           </li>
