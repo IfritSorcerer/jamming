@@ -7,6 +7,12 @@ const Playlist = ({ tracks, removeTrack }) => {
   const handleNameChange = (e) => {
     setPlaylistName(e.target.value);
   };
+
+  const handleSavePlaylist = (props) => {
+    const trackUris = props.tracks.map(trackUris)
+    props.createSpotfiyPlaylist(playlistName, trackUris)
+  };
+
   return (
     <div>
       <label htmlFor="playlist-maker">Name:</label>
@@ -26,13 +32,20 @@ const Playlist = ({ tracks, removeTrack }) => {
             <p>
               {track.artist} | {track.album}
             </p>
-            <button type="submit" onClick={() => { console.log('button clicked'); removeTrack(track.id);}}>
+            
+            <button
+              type="submit"
+              onClick={() => {
+                console.log("button clicked");
+                removeTrack(track.id);
+              }}
+            >
               Remove From Playlist
             </button>
           </li>
         ))}
       </ol>
-      <button value="submit">Save to Spotify</button>
+      <button value="submit" onClick={handleSavePlaylist}>Save to Spotify</button>
     </div>
   );
 };

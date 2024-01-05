@@ -10,7 +10,7 @@ const PlaylistContainer = () => {
   };
 
   const removeTrackFromPlaylist = (trackIdToRemove) => {
-      console.log('removing track with ID:', trackIdToRemove);
+    console.log("removing track with ID:", trackIdToRemove);
     setTracks((tracks) =>
       tracks.filter((track) => track.id !== trackIdToRemove)
     );
