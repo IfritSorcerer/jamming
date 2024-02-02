@@ -1,51 +1,30 @@
-import React, { useState } from "react";
+import React, { useCallback } from "react";
+import TrackListing from "../Track/TrackListing";
 
-const Playlist = ({ tracks, removeTrack }) => {
-  const songList = tracks ?? [];
-
-  const [playlistName, setPlaylistName] = useState("New Playlist");
-  const handleNameChange = (e) => {
-    setPlaylistName(e.target.value);
-  };
-
-  const handleSavePlaylist = (props) => {
-    const trackUris = props.tracks.map(trackUris)
-    props.createSpotfiyPlaylist(playlistName, trackUris)
-  };
+const Playlist = (props) => {
+  const handleNameChange = useCallback(
+    (event) => {
+      props.onNameChange(event.targets.value);
+    },
+    [props.onNameChange]
+  );
 
   return (
     <div>
-      <label htmlFor="playlist-maker">Name:</label>
+      <label htmlFor="playlist">Name:</label>
       <input
-        htmlFor="playlist-maker"
+        onNameChange={handleNameChange}
+        htmlFor="playlist"
         type="text"
-        id="playlist-maker"
-        onChange={handleNameChange}
-        value={playlistName}
+        id="playlist"
+        placeholder="New Playlist"
       />
-      <h2>{playlistName}</h2>
-
-      <ol>
-        {songList.map((track) => (
-          <li key={track.id}>
-            <b>{track.name}</b>
-            <p>
-              {track.artist} | {track.album}
-            </p>
-            
-            <button
-              type="submit"
-              onClick={() => {
-                console.log("button clicked");
-                removeTrack(track.id);
-              }}
-            >
-              Remove From Playlist
-            </button>
-          </li>
-        ))}
-      </ol>
-      <button value="submit" onClick={handleSavePlaylist}>Save to Spotify</button>
+      <TrackListing
+        tracks={props.playlistTracks}
+        isRemoval={true}
+        onRemove={props.onRemove}
+      />
+      <button onClick={props.onSave}>Save to Spotify</button>
     </div>
   );
 };
