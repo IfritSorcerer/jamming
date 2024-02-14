@@ -5,7 +5,7 @@ const Track = (props) => {
     (event) => {
       props.onAdd(props.track);
     },
-    [props.onAdd, props.track]
+    [props]
   );
 
   const removeTrack = useCallback(
@@ -28,9 +28,9 @@ const Track = (props) => {
   return (
     <div>
       <div>
-        <h3>{props.track?.name}</h3>
+        <h3>{props.track.name}</h3>
         <p>
-          {props.track?.artist} | {props.track?.album}
+          {props.track.artist} | {props.track.album}
         </p>
       </div>
         {renderAction()}

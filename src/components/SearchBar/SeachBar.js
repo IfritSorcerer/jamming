@@ -7,8 +7,12 @@ const SearchBar = (props) => {
     setTerm(event.target.value);
   }, []);
 
-  const search = useCallback(() => {
+  const search = useCallback((e) => {
+    try{
     props.onSearch(term);
+    } catch (error) {
+      console.warn(error)
+    }
   }, [props.onSearch, term]);
 
   return (
@@ -17,7 +21,7 @@ const SearchBar = (props) => {
         placeholder="What are you Jamming to?"
         onChange={handleTermChange}
       />
-      <button onClick={search}>Search</button>
+      <button type='button'onClick={search}>Search</button>
     </div>
   );
 };
