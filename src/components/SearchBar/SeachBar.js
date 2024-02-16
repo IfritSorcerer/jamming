@@ -7,12 +7,8 @@ const SearchBar = (props) => {
     setTerm(event.target.value);
   }, []);
 
-  const search = useCallback((e) => {
-    try{
+  const search = useCallback(() => {
     props.onSearch(term);
-    } catch (error) {
-      console.warn(error)
-    }
   }, [props.onSearch, term]);
 
   return (
