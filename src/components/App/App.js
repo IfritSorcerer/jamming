@@ -45,7 +45,7 @@ const App = () => {
     <div>
       <h1>Jamming!</h1>
       <SearchBar onSearch={search} />
-      <SearchResults searchResults={SearchResults} onAdd={addTrack} />
+      <SearchResults searchResults={searchResults} onAdd={addTrack} />
       <Playlist
         playlistName={playlistName}
         playlistTracks={playlistTracks}
