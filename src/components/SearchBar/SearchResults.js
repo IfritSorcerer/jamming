@@ -1,14 +1,21 @@
 import React from "react";
 import TrackListing from "../Track/TrackListing";
 
+import "../../styles/SearchResults.css";
+
 const SearchResults = (props) => {
   
   return (
-    <div>
+    <>
+    <div className="SearchResults">
       <h2>Results:</h2>
-      
-      <TrackListing  tracks={props.searchResults} onAdd={props.onAdd}/>
+      <section>
+        <TrackListing  
+          tracks={props.searchResults} 
+          onAdd={props.onAdd}/>
+      </section>
     </div>
+    </>
   );
 };
 

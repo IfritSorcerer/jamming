@@ -1,5 +1,7 @@
 import React, { useCallback, useState } from "react";
 
+import "../../styles/SearchBar.css";
+
 const SearchBar = (props) => {
   const [term, setTerm] = useState("");
 
@@ -12,12 +14,15 @@ const SearchBar = (props) => {
   }, [props.onSearch, term]);
 
   return (
-    <div>
+    <div className="SearchInput">
       <input
         placeholder="What are you Jamming to?"
         onChange={handleTermChange}
       />
-      <button type='button'onClick={search}>Search</button>
+      <button 
+        className="SearchButton"
+        type='button'
+        onClick={search}>Search</button>
     </div>
   );
 };

@@ -1,0 +1,14 @@
+.h1 {
+    font-size: 18;
+    margin-top: 0;
+    margin-bottom: 5em;
+    padding: .5rem;
+
+    color: antiquewhite;
+    background-image: linear-gradient(rgba(50,50,50,1), rgba(27,27,27,0));
+    
+    width: auto;
+    height: 100%;
+
+    text-align: center;
+}

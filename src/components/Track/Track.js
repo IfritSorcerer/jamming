@@ -1,5 +1,7 @@
 import React, { useCallback } from "react";
 
+import "../../styles/TrackInfo.css";
+
 const Track = (props) => {
   const addTrack = useCallback(
     (event) => {
@@ -26,11 +28,11 @@ const Track = (props) => {
     );
   };
   return (
-    <div>
+    <div className="TrackContainer">
       <div>
         <h3>{props.track.name}</h3>
         <p>
-          {props.track.artists} | {props.track.album}
+          {props.track.artist} | {props.track.album}
         </p>
       </div>
         {renderAction()}

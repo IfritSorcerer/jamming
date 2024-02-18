@@ -1,9 +1,10 @@
 import React, { useCallback, useState } from "react";
-import SearchBar from "../SearchBar/SeachBar";
+import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchBar/SearchResults";
 import Playlist from "../Playlist/Playlist";
 import Spotify from "../../util/Spotify";
 
+import styles from "../../styles/App.module.css";
 const App = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("New Playlist");
@@ -43,7 +44,9 @@ const App = () => {
 
   return (
     <div>
-      <h1>Jamming!</h1>
+        <header className={styles.h1}>
+        <h1>Jamming!</h1>
+        </header>
       <SearchBar onSearch={search} />
       <SearchResults searchResults={searchResults} onAdd={addTrack} />
       <Playlist

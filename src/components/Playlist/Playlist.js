@@ -1,17 +1,18 @@
 import React, { useCallback } from "react";
 import TrackListing from "../Track/TrackListing";
 
+import "../../styles/PlaylistInfo.css";
+
 const Playlist = (props) => {
   const handleNameChange = useCallback(
     (event) => {
-      props.onNameChange(event.targets.value);
+      props.onNameChange(event.target.value);
     },
     [props.onNameChange]
   );
 
   return (
-    <div>
-      <label htmlFor="playlist">Name:</label>
+    <div className="PlaylistContainer">
       <input
         onNameChange={handleNameChange}
         htmlFor="playlist"
@@ -24,7 +25,9 @@ const Playlist = (props) => {
         isRemoval={true}
         onRemove={props.onRemove}
       />
-      <button onClick={props.onSave}>Save to Spotify</button>
+      <button 
+        className="SpotifySaveBtn"
+        onClick={props.onSave}>Save to Spotify</button>
     </div>
   );
 };
