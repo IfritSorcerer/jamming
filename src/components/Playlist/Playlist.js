@@ -16,8 +16,8 @@ const Playlist = (props) => {
       <input
         onNameChange={handleNameChange}
         htmlFor="playlist"
+        className="PlaylistInput"
         type="text"
-        id="playlist"
         placeholder="New Playlist"
       />
       <TrackListing

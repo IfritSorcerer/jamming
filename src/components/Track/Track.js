@@ -20,15 +20,24 @@ const Track = (props) => {
   const renderAction = () => {
     if (props.isRemoval) {
       return (
-        <button onClick={removeTrack}>-</button>
+        <button 
+          onClick={removeTrack}
+          className="ButtonAction">-</button>
       );
     }
     return (
-      <button onClick={addTrack}>+</button>
+      <button 
+        onClick={addTrack}
+        className="ButtonAction">+</button>
     );
   };
   return (
     <div className="TrackContainer">
+          <img 
+            className= "AlbumArt"
+            src={props.track.art}
+            alt="Album Cover"
+          />
       <div>
         <h3>{props.track.name}</h3>
         <p>

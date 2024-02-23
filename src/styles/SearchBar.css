@@ -22,7 +22,7 @@
 
 .SearchButton {
     cursor: pointer;
-    background-color: black;
+    background-color: #1b1b1b;
     color: antiquewhite;
     box-shadow:  1px 3px 3px grey;
 
@@ -37,5 +37,5 @@
 }
 
 .SearchButton:hover {
-    background-color: brown;
+    background-color: #1DB954;
 }
