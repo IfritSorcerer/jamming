@@ -1,5 +1,5 @@
 const clientID = "747656671cad4eaa86ef2f1f3877ae15";
-const redirectUri = "https://jammingmusicfinder.netlify.app/callback";
+const redirectUri = "https://jammingmusicfinder.netlify.app/";
 
 const SpotifyAuth = {
   generateCodeVerifier(length = 128) {
