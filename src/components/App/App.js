@@ -1,4 +1,6 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
+import useSpotifyAuth from "../../hooks/useSpotifyAuth";
+
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchBar/SearchResults";
 import Playlist from "../Playlist/Playlist";
@@ -10,10 +12,12 @@ const App = () => {
   const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
+  const token = useSpotifyAuth();
+
   const search = useCallback((term) => {
-    Spotify.search(term).then(setSearchResults);
-    console.log(searchResults)
-  }, [searchResults]);
+    if (!token) return;
+    Spotify.search(term, token).then(setSearchResults);
+  }, [token])
 
   const addTrack = useCallback(
     (track) => {
@@ -35,12 +39,13 @@ const App = () => {
   }, []);
 
   const savePlaylist = useCallback(() => {
+    if (!token) return;
     const trackUris = playlistTracks.map((track) => track.uri);
-    Spotify.savePlaylist(playlistName, trackUris).then(() => {
+    Spotify.savePlaylist(playlistName, trackUris, token).then(() => {
       setPlaylistName("New Playlist");
       setPlaylistTracks([]);
     });
-  }, [playlistName, playlistTracks]);
+  }, [playlistName, playlistTracks, token])
 
   return (
     <div>
