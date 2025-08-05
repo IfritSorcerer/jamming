@@ -1,14 +1,14 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import TrackListing from "../Track/TrackListing";
 
 import "../../styles/PlaylistInfo.css";
 
-const Playlist = (props) => {
+const Playlist = ({onNameChange, playlistTracks, onSave, onRemove}) => {
   const handleNameChange = useCallback(
     (event) => {
-      props.onNameChange(event.target.value);
+      onNameChange(event.target.value);
     },
-    [props.onNameChange]
+    [onNameChange]
   );
 
   return (
@@ -21,13 +21,13 @@ const Playlist = (props) => {
         placeholder="New Playlist"
       />
       <TrackListing
-        tracks={props.playlistTracks}
+        tracks={playlistTracks}
         isRemoval={true}
-        onRemove={props.onRemove}
+        onRemove={onRemove}
       />
       <button 
         className="SpotifySaveBtn"
-        onClick={props.onSave}>Save to Spotify</button>
+        onClick={onSave}>Save to Spotify</button>
     </div>
   );
 };
