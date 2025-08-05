@@ -3,15 +3,15 @@ import TrackListing from "../Track/TrackListing";
 
 import "../../styles/SearchResults.css";
 
-const SearchResults = (props) => {
+const SearchResults = ({searchResults, onAdd}) => {
   
   return (
     <div className="SearchResults">
       <h2 className="ResultsHeader">Results:</h2>
       <section>
         <TrackListing  
-          tracks={props.searchResults} 
-          onAdd={props.onAdd}/>
+          tracks={searchResults} 
+          onAdd={onAdd}/>
       </section>
     </div>
   );
