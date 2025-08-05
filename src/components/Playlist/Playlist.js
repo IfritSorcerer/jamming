@@ -3,12 +3,12 @@ import TrackListing from "../Track/TrackListing";
 
 import "../../styles/PlaylistInfo.css";
 
-const Playlist = ({onNameChange, playlistTracks, onRemove, onSave}) => {
+const Playlist = (props) => {
   const handleNameChange = useCallback(
     (event) => {
-      onNameChange(event.target.value);
+      props.onNameChange(event.target.value);
     },
-    [onNameChange]
+    [props.onNameChange]
   );
 
   return (
@@ -21,13 +21,13 @@ const Playlist = ({onNameChange, playlistTracks, onRemove, onSave}) => {
         placeholder="New Playlist"
       />
       <TrackListing
-        tracks={playlistTracks}
+        tracks={props.playlistTracks}
         isRemoval={true}
-        onRemove={onRemove}
+        onRemove={props.onRemove}
       />
       <button 
         className="SpotifySaveBtn"
-        onClick={onSave}>Save to Spotify</button>
+        onClick={props.onSave}>Save to Spotify</button>
     </div>
   );
 };

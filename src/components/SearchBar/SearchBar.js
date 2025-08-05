@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 
 import "../../styles/SearchBar.css";
 
-const SearchBar = ({ onSearch}) => {
+const SearchBar = (props) => {
   const [term, setTerm] = useState("");
 
   const handleTermChange = useCallback((event) => {
@@ -10,8 +10,8 @@ const SearchBar = ({ onSearch}) => {
   }, []);
 
   const search = useCallback(() => {
-    onSearch(term);
-  }, [onSearch, term]);
+    props.onSearch(term);
+  }, [props.onSearch, term]);
 
   return (
     <div className="SearchInput">
